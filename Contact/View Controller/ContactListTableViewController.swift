@@ -27,24 +27,40 @@
 import UIKit
 
 class ContactListTableViewController: UITableViewController {
+  
+  var contacts = [Contact]()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    var contact1 = Contact()
+    contact1.name = "賴佩琪"
+    contact1.phone = "0982478355"
+    contact1.email = "ddd@gmail.com"
+    contacts.append(contact1)
+    print(contacts)
+  }
 
-      
-    }
+  // MARK: - Table view data source
 
-    // MARK: - Table view data source
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    1
+  }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    contacts.count
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
+    var content = cell.defaultContentConfiguration()
+    let contact = contacts[indexPath.row]
+    //FIXME: - 圖片在List會變得好大
+//    content.image = contact.thumbnail!
+    content.text = contact.name
+    cell.contentConfiguration = content
+    return cell
+  }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-
+  
 }
