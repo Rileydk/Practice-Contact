@@ -205,9 +205,12 @@
                         <outlet property="phoneContainer" destination="7pz-W3-G4w" id="tVD-pc-3Y9"/>
                         <outlet property="phoneTextField" destination="QmO-nr-SgT" id="FqT-2G-kYx"/>
                         <outlet property="thumbnailImageView" destination="5V8-gm-KHD" id="2vj-GD-oPt"/>
+                        <segue destination="Hcy-AJ-Aqu" kind="unwind" identifier="cancelNewContact" unwindAction="canceNewContactWithUnwindSegue:" id="qvg-1i-fNg"/>
+                        <segue destination="Hcy-AJ-Aqu" kind="unwind" identifier="saveNewContact" unwindAction="saveNewContactWithUnwindSegue:" id="CNF-LZ-Xrf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0R-Dy-Hhp" sceneMemberID="firstResponder"/>
+                <exit id="Hcy-AJ-Aqu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3175" y="78"/>
         </scene>

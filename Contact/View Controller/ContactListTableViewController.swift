@@ -9,14 +9,11 @@
   //TODO: - 輸入結束後鍵盤處理
   //TODO: - 輸入框底線
 //TODO: - 練習tableView、NavigationBar
-  //TODO: - 點擊Done或列表按鈕都可以進到Contact
-  //TODO: - 從Add進入Contact會顯示Discard和Save選項。點擊Save會儲存退回Add。點擊Discard會退回List
   //TODO: - 從List進入Contact會顯示Delete選項，點擊Delete會跳出警示，Yes刪除，Cancel回到Contact。
   //TODO: - 可以在List上左滑顯示刪除鍵，點擊刪除會跳出同上警示。
 //TODO: - 練習NotificationCenter
 //TODO: - 練習PhotosUI，讓選取的顯示在Contact和列表上（可能需調整照片圖框大小、圓角設定和aspect）
 
-//MARK: - Backlog
 //TODO: - 使用UIContenConfiguration將照片以合理大小顯示在List上
 //TODO: - 分為常用聯絡人、緊急聯絡人和一般聯絡人
 //TODO: - 從Add進入Contact會顯示Edit、Discard和Save選項。點擊Edit會退回Add。點擊Discard會退回List
@@ -29,16 +26,15 @@ import UIKit
 class ContactListTableViewController: UITableViewController {
   
   var contacts = [Contact]()
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    var contact1 = Contact()
-    contact1.name = "賴佩琪"
-    contact1.phone = "0982478355"
-    contact1.email = "ddd@gmail.com"
-    contacts.append(contact1)
-    print(contacts)
+    NotificationCenter.default.addObserver(self, selector: #selector(updateContact(notification:)), name: .saveContact, object: nil)
   }
 
   // MARK: - Table view data source
@@ -82,4 +78,25 @@ class ContactListTableViewController: UITableViewController {
     }
   }
   
+  @IBAction func saveNewContact(unwindSegue: UIStoryboardSegue) {
+//    tableView.reloadData()
+    
+//    guard let contactVC = unwindSegue.source as? ContactViewController else {
+//      return
+//    }
+//    let contact = contactVC.contact
+//    contacts.append(contact)
+//    tableView.reloadData()
+  }
+  
+  @IBAction func canceNewContact(unwindSegue: UIStoryboardSegue) {
+  }
+  
+  @objc func updateContact(notification: Notification) {
+    guard let contact = notification.object as? Contact else {
+      return
+    }
+    contacts.append(contact)
+    tableView.reloadData()
+  }
 }

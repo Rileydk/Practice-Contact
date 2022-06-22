@@ -49,10 +49,24 @@ class ContactViewController: UIViewController {
   }
   
   @objc func saveNewContact() {
-    
+    NotificationCenter.default.post(name: .saveContact, object: contact)
+    performSegue(withIdentifier: "saveNewContact", sender: nil)
   }
   
   @objc func cancelNewContact() {
-    
+    performSegue(withIdentifier: "cancelNewContact", sender: nil)
   }
+  
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier == "saveNewContact" {
+//      guard let contactListTableVC = segue.destination as? ContactListTableViewController else {
+//        return
+//      }
+//      contactListTableVC.contacts.append(contact)
+//    }
+//  }
+}
+
+extension Notification.Name {
+  static let saveContact = Notification.Name("saveContact")
 }
