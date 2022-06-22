@@ -45,9 +45,11 @@ class AddContactViewController: UIViewController {
   func collectContact() {
     contact.name = nameTextField.text!
     contact.phone = phoneTextField.text!
+    //TODO: - 有需要設optional binding嗎？
     contact.email = emailTextField.text ?? ""
   }
 
+  //TODO: - 改成至少應輸入一項聯絡資訊，並且僅會依照有輸入的資訊依序顯示在Contact（可能需使用array來儲存）
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     collectContact()
     if contact.isValid {
@@ -58,7 +60,14 @@ class AddContactViewController: UIViewController {
         contactViewController.contact = contact
       }
     } else {
-      print("not valid")
+      let alert = UIAlertController(title: "請完整填寫必要資訊", message: "至少應輸入姓名和電話", preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "OK", style: .default)
+      let noAction = UIAlertAction(title: "NO", style: .default)
+      
+      alert.addAction(okAction)
+      alert.addAction(noAction)
+      
+      present(alert, animated: true)
     }
   }
 

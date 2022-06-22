@@ -262,7 +262,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Phone Book" id="hcb-NN-YkA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xsI-7q-NiS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xsI-7q-NiS">
+                            <connections>
+                                <action selector="addContact:" destination="BjS-PI-ZaG" id="rzm-BZ-aS5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="AddContact" id="EAh-XO-p5F"/>
