@@ -17,11 +17,19 @@ class ContactViewController: UIViewController {
   @IBOutlet weak var emailTextField: UITextField!
   
   var contact = Contact()
+  var isNewContact = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
     makeView()
+    if isNewContact {
+      let saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveNewContact))
+      let cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelNewContact))
+      navigationItem.rightBarButtonItem = saveBarButton
+      navigationItem.leftBarButtonItem = cancelBarButton
+    }
+    
     nameLabel.text = contact.name
     phoneTextField.text = "電話：\(contact.phone)"
     phoneTextField.setBottomBorder()
@@ -38,5 +46,13 @@ class ContactViewController: UIViewController {
     thumbnailImageView.layer.cornerRadius = thumbnailImageView.frame.size.width / 2
     phoneContainer.layer.cornerRadius = 10
     emailContainer.layer.cornerRadius = 10
+  }
+  
+  @objc func saveNewContact() {
+    
+  }
+  
+  @objc func cancelNewContact() {
+    
   }
 }

@@ -58,6 +58,7 @@ class AddContactViewController: UIViewController {
           return
         }
         contactViewController.contact = contact
+        contactViewController.isNewContact = true
       }
     } else {
       let alert = UIAlertController(title: "請完整填寫必要資訊", message: "至少應輸入姓名和電話", preferredStyle: .alert)
