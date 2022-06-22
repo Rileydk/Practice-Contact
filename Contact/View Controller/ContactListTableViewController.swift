@@ -47,6 +47,7 @@ class ContactListTableViewController: UITableViewController {
     1
   }
 
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     contacts.count
   }
@@ -62,5 +63,8 @@ class ContactListTableViewController: UITableViewController {
     return cell
   }
 
+  @IBAction func addContact(_ sender: UIBarButtonItem) {
+    performSegue(withIdentifier: "AddContact", sender: nil)
+  }
   
 }
