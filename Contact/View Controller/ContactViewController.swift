@@ -39,6 +39,4 @@ class ContactViewController: UIViewController {
     phoneContainer.layer.cornerRadius = 10
     emailContainer.layer.cornerRadius = 10
   }
-    
-
 }

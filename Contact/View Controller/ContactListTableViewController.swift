@@ -62,9 +62,24 @@ class ContactListTableViewController: UITableViewController {
     cell.contentConfiguration = content
     return cell
   }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let contact = contacts[indexPath.row]
+    performSegue(withIdentifier: "ReadContact", sender: contact)
+  }
 
   @IBAction func addContact(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "AddContact", sender: nil)
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ReadContact" {
+      guard let contactVC = segue.destination as? ContactViewController,
+            let contact = sender as? Contact else {
+        return
+      }
+      contactVC.contact = contact
+    }
   }
   
 }
