@@ -5,6 +5,10 @@
 //  Created by Riley Lai on 2022/6/22.
 //
 
+//TODO: - 練習NotificationCenter
+//TODO: - 練習tableView
+//TODO: - 練習PhotosUI
+
 import UIKit
 
 class ContactListTableViewController: UITableViewController {
