@@ -24,12 +24,14 @@ class ContactViewController: UIViewController {
     makeView()
     nameLabel.text = contact.name
     phoneTextField.text = "電話：\(contact.phone)"
+    phoneTextField.setBottomBorder()
     phoneTextField.isEnabled = false
     if contact.email.isEmpty {
       emailContainer.isHidden = true
       emailTextField.isHidden = true
     }
     emailTextField.text = "Email：\(contact.email)"
+    emailTextField.setBottomBorder()
   }
   
   func makeView() {

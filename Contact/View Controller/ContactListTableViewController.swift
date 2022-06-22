@@ -6,23 +6,23 @@
 //
 
 //TODO: - 練習Layout：
-  //TODO: - 未輸入應輸入的欄位會跳出警示框並要求繼續輸入
   //TODO: - 輸入結束後鍵盤處理
   //TODO: - 輸入框底線
-//TODO: - 練習NotificationCenter
 //TODO: - 練習tableView、NavigationBar
-  //TODO: - 讓編輯完成的contact顯示到列表上，包含照片
-  //TODO: - 點擊+可以進到Add新增
   //TODO: - 點擊Done或列表按鈕都可以進到Contact
   //TODO: - 從Add進入Contact會顯示Discard和Save選項。點擊Save會儲存退回Add。點擊Discard會退回List
   //TODO: - 從List進入Contact會顯示Delete選項，點擊Delete會跳出警示，Yes刪除，Cancel回到Contact。
   //TODO: - 可以在List上左滑顯示刪除鍵，點擊刪除會跳出同上警示。
+//TODO: - 練習NotificationCenter
 //TODO: - 練習PhotosUI，讓選取的顯示在Contact和列表上（可能需調整照片圖框大小、圓角設定和aspect）
 
 //MARK: - Backlog
+//TODO: - 使用UIContenConfiguration將照片以合理大小顯示在List上
 //TODO: - 分為常用聯絡人、緊急聯絡人和一般聯絡人
 //TODO: - 從Add進入Contact會顯示Edit、Discard和Save選項。點擊Edit會退回Add。點擊Discard會退回List
 //TODO: - 從List進入Contact會顯示Edit、Delete選項，點擊Edit會讓欄位變成可編輯，顯示原本隱藏的欄位，並出現Discard和Save選項。點擊Delete會跳出警示，Yes刪除，Cancel回到Contact。
+//TODO: - 電話可以識別是否為iphone，可撥打或傳送imessage
+//TODO: - 點擊email可以寄信
 
 import UIKit
 
